@@ -1,0 +1,29 @@
+#templates {
+  display: none;
+}
+
+.thumbnail_frame {
+  width: 150px;
+  height: 150px;
+  background-color: #cccccc;
+}
+
+.technology_container {
+  width: 100%;
+  height: 300px;
+  background-color: #dddddd;
+}
+
+#thumbnail_gallery ul {
+  margin-top: 20px;
+}
+
+#thumbnail_gallery ul li {
+  cursor: pointer;
+}
+
+.header {
+  width: 100%;
+  height: 200px;
+  background-color: #777777;
+}

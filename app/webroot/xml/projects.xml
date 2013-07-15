@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<projects>
+	<project>
+		<id>1</id>
+		<title>NPower competition</title>
+		<tech>javascript</tech>
+		<header_image_url>./image1.jpg</header_image_url>
+	</project>
+	<project>
+		<id>2</id>
+		<title>Magpiebox</title>
+		<tech>PHP, javascript</tech>
+		<header_image_url>./image2.jpg</header_image_url>
+	</project>
+</projects>
