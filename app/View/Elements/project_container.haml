@@ -1,18 +1,96 @@
-.row-fluid	
-	.header.span12
-		.row-fluid
-			:plain
-				<?php 
-					//echo $this->Html->image($header_image_url, array('width'=>300, 'height'=>300)); 
-				?>
 .row-fluid
-	.body.span12
+	.span8
+		.title-container
+			%h2
+				<%= title %>
+	.span4
+		.live-link-container
+			:plain
+				<a href="<%= live_site_url %>">
+					<div class="live-link-button">
+						<h4>
+							View Live Site >
+						</h4>
+					</div>
+				</a>
+.row-fluid
+	
+	.span12
 		.row-fluid
-			.span8
-				.content_container
-					:plain
-						<%= title %>
-			.span4
-				.technology_container
-					:plain
-						<%= tech %>
+			.span12
+				.row-fluid
+					.span12
+						.image-outer-container
+							.image-inner-container
+								:plain
+									<img id="main_image" src="<%= image_url[0] %>" />
+				//.row-fluid
+				//	.span12
+				//		.alts-outer-container
+				//			.alts-inner-container
+				//				.row-fluid
+				//					:plain
+				//						<% _.each(image_url, function(url) { %>
+				//							<div class="alt-frame span1" style="background-image:url('<%= url %>')">
+				//							</div>
+				//						<% }); %>
+				.row-fluid
+					.span12
+						.body-container
+							<%= body %>						
+				.row-fluid
+					.span12
+						.technology-container
+							.row-fluid.languages
+								.span2
+									Languages: 
+								.span10
+									%ul.thumbnails
+										:plain
+											<% if (!(languages['language'] instanceof Array)) { %>
+												<li class="thumbnail"><%= languages['language'] %></li>
+											<% } else {
+												_.each(languages['language'], function(item) { %>
+													<li class="thumbnail"><%= item %></li>
+												<% }); 
+											} %>
+							.row-fluid.libraries
+								.span2
+									Libraries:
+								.span10
+									%ul.thumbnails
+										:plain
+											<% if (!(libraries['library'] instanceof Array)) { %>
+												<li class="thumbnail"><%= libraries['library'] %></li>
+											<% } else {
+												_.each(libraries['library'], function(item) { %>
+													<li class="thumbnail"><%= item %></li>
+												<% }); 
+											} %>
+							.row-fluid.tools
+								.span2
+									Tools:
+								.span10
+									%ul.thumbnails
+										:plain
+											<% if (!(tools['tool'] instanceof Array)) { %>
+												<li class="thumbnail"><%= tools['tools'] %></li>
+											<% } else {
+											_.each(tools['tool'], function(item) { %>
+												<li class="thumbnail"><%= item %></li>
+												<% });
+											} %>
+							.row-fluid.others
+								.span2
+									Other:
+								.span10
+									%ul.thumbnails
+										:plain
+											<% if (!(others['other'] instanceof Array)) { %>
+												<li class="thumbnail"><%= others['other'] %></li>
+											<% } else {
+												_.each(others.other, function(item) { %>
+													<li class="thumbnail"><%= item %></li>
+												<% }); 
+											} %>
+							

@@ -4,8 +4,17 @@
 			:href => '/css/bootstrap.css',
 			:type => 'text/css'}
 		%link{:rel => 'stylesheet',
-			:href => '/css/styles.css',
+			:href => '/css/site_styles.css',
 			:type => 'text/css'}
+		%link{:rel => 'stylesheet',
+			:href => 'http://fonts.googleapis.com/css?family=Quattrocento',
+			:type => 'text/css'}
+		%link{:rel => 'stylesheet',
+			:href => 'http://fonts.googleapis.com/css?family=Allan:bold',
+			:type => 'text/css'}	
+		%link{:rel => 'stylesheet',
+			:href => 'http://fonts.googleapis.com/css?family=Cardo',
+			:type => 'text/css'}	
 		%script{:src => '//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js',
 			:type => 'text/javascript'}
 		%script{:src => './js/underscore.js',
@@ -15,25 +24,35 @@
 		%script{:src => './js/portfolio.js',
 			:type => 'text/javascript'}
 	%body
-		.container-fluid
-			.row-fluid
-				.span1
-				.span10
-					%h2
-						Ed Blundell: Portfolio
+		#app_header.container-fluid
+			.header_inner_container
+				.row-fluid
+					.span6.left-frame
+						.title-frame
+							%h2
+								Portfolio
+					.span6.right-frame
+						%ul.nav.nav-pills
+							%li
+								%a
+									About me
+							%li
+								%a
+									Projects
+							%li
+								%a
+									Contact me
+		#app_container.container-fluid
 			.row-fluid
 				.span12
-					.span1
-					.span10
-						.row-fluid
-							.span3{:style => "background-color:#555555;"}
-								.row-fluid
-									.span4
-									.span8#thumbnail_gallery
-							.span9
-								:plain
-									<?php 
-										echo $content_for_layout; 
-									?>
-
+					.row-fluid
+						#thumbnail_column.span1
+							.row-fluid
+							.row-fluid
+								.span12#thumbnail_gallery
+						#project_container.span10
+							:plain
+								<?php 
+									echo $content_for_layout; 
+								?>
 		#templates

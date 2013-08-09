@@ -1,5 +1,4 @@
 <div class='thumbnail_frame'>
-  <b>
-    <%= title %>
-  </b>
+  <img src="<%= thumbnail_image_url %>" id="<%= id %>" />
 </div>
+<div class='clickable_frame'></div>

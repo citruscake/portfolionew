@@ -1,15 +1,28 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <projects>
-	<project>
-		<id>1</id>
-		<title>NPower competition</title>
-		<tech>javascript</tech>
-		<header_image_url>./image1.jpg</header_image_url>
-	</project>
-	<project>
-		<id>2</id>
-		<title>Magpiebox</title>
-		<tech>PHP, javascript</tech>
-		<header_image_url>./image2.jpg</header_image_url>
-	</project>
+  <project>
+    <id>1</id>
+    <languages>
+      <language>Javascript</language>
+    </languages>
+    <libraries>
+      <library>Node.js</library>
+      <library>Express</library>
+    </libraries>
+    <tools>
+      <tool>Coffeescript</tool>
+      <tool>SASS</tool>
+    </tools>
+    <others>
+      <other>Bootstrap</other>
+    </others>
+    <body>This is the project body. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </body>
+    <title>24/365 Challenge</title>
+    <tech>javascript</tech>
+    <image_url>img/24365_2.png</image_url>
+    <image_urls></image_urls>
+    <image_url>/img/24365_2.png </image_url>
+    <thumbnail_image_url>/img/24365_logo.png</thumbnail_image_url>
+    <live_site_url>http://24hourchallenge.eu01.aws.af.cm</live_site_url>
+  </project>
 </projects>

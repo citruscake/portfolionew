@@ -1,6 +1,8 @@
 (function() {
   $(function() {
-    var initialiseModels;
+    var initialiseModels, projectCollection, projectCollectionView;
+    projectCollectionView = null;
+    projectCollection = null;
     initialiseModels = function() {
       window.Project = Backbone.Model.extend({});
       window.ProjectView = Backbone.View.extend({
@@ -11,6 +13,7 @@
           var attributes;
           attributes = this.model.toJSON();
           this.$el.html(this.template(attributes));
+          console.log(attributes);
           return this;
         }
       });
@@ -22,7 +25,7 @@
           attributes = this.model.toJSON();
           this.$el.html(this.template(attributes));
           $(this.el).addClass('thumbnail');
-          $(this.el).attr('id', this.model.get('id'));
+          $(this.el).find('.clickable_frame').attr('id', this.model.get('id'));
           return this;
         }
       });
@@ -64,6 +67,7 @@
         render: function(project_id) {
           var project, projectView;
           project = this.collection.get(project_id);
+          console.log(project_id);
           projectView = new ProjectView({
             model: project
           });
@@ -80,10 +84,11 @@
         $('#templates').append(template);
       }
       initialiseModels();
-      window.projectCollection = new ProjectCollection();
+      projectCollection = new ProjectCollection();
       projectThumbnailsView = new ProjectThumbnailsView({
         collection: projectCollection
       });
+      console.log(projectCollection);
       return projectCollection.fetch({
         success: function(collection, response) {
           return $('#thumbnail_gallery').html(projectThumbnailsView.render().el);
@@ -92,8 +97,9 @@
     });
     return $(document).ready(function() {
       return $('#thumbnail_gallery').on('click', '.thumbnail', function(event) {
-        var project, projectCollectionView, project_id;
-        project_id = $(event.target).parent().attr('id');
+        var project, project_id;
+        project_id = $(event.target).attr('id');
+        console.log($(event.target));
         project = projectCollection.get(project_id);
         projectCollectionView = new ProjectCollectionView({
           collection: projectCollection
