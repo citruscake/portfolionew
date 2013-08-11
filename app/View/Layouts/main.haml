@@ -24,35 +24,29 @@
 		%script{:src => './js/portfolio.js',
 			:type => 'text/javascript'}
 	%body
-		#app_header.container-fluid
-			.header_inner_container
-				.row-fluid
-					.span6.left-frame
-						.title-frame
-							%h2
-								Portfolio
-					.span6.right-frame
-						%ul.nav.nav-pills
-							%li
-								%a
-									About me
-							%li
-								%a
-									Projects
-							%li
-								%a
-									Contact me
-		#app_container.container-fluid
-			.row-fluid
-				.span12
+		#gradient_container
+			#app_header.container-fluid
+				.header_inner_container
 					.row-fluid
-						#thumbnail_column.span1
-							.row-fluid
-							.row-fluid
-								.span12#thumbnail_gallery
-						#project_container.span10
-							:plain
-								<?php 
-									echo $content_for_layout; 
-								?>
-		#templates
+						.span6.left-frame
+							.title-frame
+								%h2
+									Ed's Portfolio
+					.row-fluid
+						.span12.right-frame
+							%ul.nav.nav-pills
+								%li
+									%a{:id => "about_me_link"}
+										About me
+								%li
+									%a{:id => "projects_link"}
+										Projects
+								%li
+									%a{:id => "contact_me_link"}
+										Contact me
+			#app_container.container-fluid
+				:plain
+					<?php
+						echo $content_for_layout
+					?>
+			#templates

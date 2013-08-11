@@ -9,7 +9,7 @@
   <div class='span4'>
     <div class='live-link-container'>
       <a href="<%= live_site_url %>">
-      	<div class="live-link-button">
+      	<div id ="live-link-button">
       		<h4>
       			View Live Site >
       		</h4>

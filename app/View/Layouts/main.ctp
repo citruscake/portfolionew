@@ -11,57 +11,47 @@
     <script src='./js/portfolio.js' type='text/javascript'></script>
   </head>
   <body>
-    <div class='container-fluid' id='app_header'>
-      <div class='header_inner_container'>
-        <div class='row-fluid'>
-          <div class='span6 left-frame'>
-            <div class='title-frame'>
-              <h2>
-                Portfolio
-              </h2>
-            </div>
-          </div>
-          <div class='span6 right-frame'>
-            <ul class='nav nav-pills'>
-              <li>
-                <a>
-                  About me
-                </a>
-              </li>
-              <li>
-                <a>
-                  Projects
-                </a>
-              </li>
-              <li>
-                <a>
-                  Contact me
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class='container-fluid' id='app_container'>
-      <div class='row-fluid'>
-        <div class='span12'>
+    <div id='gradient_container'>
+      <div class='container-fluid' id='app_header'>
+        <div class='header_inner_container'>
           <div class='row-fluid'>
-            <div class='span1' id='thumbnail_column'>
-              <div class='row-fluid'></div>
-              <div class='row-fluid'>
-                <div class='span12' id='thumbnail_gallery'></div>
+            <div class='span6 left-frame'>
+              <div class='title-frame'>
+                <h2>
+                  Ed's Portfolio
+                </h2>
               </div>
             </div>
-            <div class='span10' id='project_container'>
-              <?php 
-              	echo $content_for_layout; 
-              ?>
+          </div>
+          <div class='row-fluid'>
+            <div class='span12 right-frame'>
+              <ul class='nav nav-pills'>
+                <li>
+                  <a id='about_me_link'>
+                    About me
+                  </a>
+                </li>
+                <li>
+                  <a id='projects_link'>
+                    Projects
+                  </a>
+                </li>
+                <li>
+                  <a id='contact_me_link'>
+                    Contact me
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
+      <div class='container-fluid' id='app_container'>
+        <?php
+        	echo $content_for_layout
+        ?>
+      </div>
+      <div id='templates'></div>
     </div>
-    <div id='templates'></div>
   </body>
 </html>

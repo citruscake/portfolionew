@@ -34,58 +34,18 @@ App::uses('Xml', 'Utility');
  */
 class MainController extends AppController {
 
-	var $projects;
-
 	public function index() {
 		$this->layout = "main";
-		$this->set('test_variable', "test");
-
-		$xml = Xml::build('./xml/projects.xml');
-		$xmlArray = Xml::toArray($xml);
-		$projects = $xmlArray['projects']['project'];
-		$this->set('projects', $projects);
-
 	}
 	
-	public function projects($command) {
-	
-		switch($command) {
-			case "fetch" :
-				
-				$this->layout = 'ajax';
-				$this->autoRender = false;
-				$xml = Xml::build('./xml/projects.xml');
-				$xmlArray = Xml::toArray($xml);
-				$projects = $xmlArray['projects']['project'];
-				echo json_encode($projects);
-				break;
-			default:
-				echo "error";
-		}
+	public function about() {
+		$this->layout = "ajax";
+		$this->set('variable', "hello");
 	}
 	
-	public function templates($command) {
-	
-		switch($command) {
-			case "fetch" :
-			
-				$this->layout = 'ajax';
-				$this->autoRender = false;
-				$templates = array();
-				$template_elements = ['thumbnail_button', 'project_container'];
-				foreach ($template_elements as $element) {
-					$view = new View($this, false);
-					$template = $view->element($element);
-					$template = "<script type=\"text/template\" id=\"".$element."_template\">".$template."</script>";
-					array_push($templates, $template);
-				}
-				echo json_encode($templates);
-				break;
-			default:
-				echo "error";
-		
-		}
-	
+	public function contact() {
+		$this->layout = "ajax";
+		$this->set('variable', "hello");
 	}
 
 }
