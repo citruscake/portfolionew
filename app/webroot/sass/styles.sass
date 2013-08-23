@@ -1,0 +1,259 @@
+$header_bg : rgba(151, 151, 151, 0.2) //rgba(151, 50, 50, 0.2)
+
+@import "compass"
+@import "compass/reset"
+
+@import "susy-defaults"
+@import "susy"
+	
+=color_transition
+	-webkit-transition: color 0.1s ease-in
+	-moz-transition: color 0.1s ease-in
+	-ms-transition: color 0.1s ease-in
+	-o-transition: color 0.1s ease-in
+	transition: color 0.1s ease-in
+
+=box_shadow($opacity)
+	-webkit-box-shadow: inset 0 0 0 rgba(255, 255, 255, $opacity), 0 1px 1px rgba(0, 0, 0, $opacity)
+	-moz-box-shadow: inset 0 0 0 rgba(255, 255, 255, $opacity), 0 1px 1px rgba(0, 0, 0, $opacity)
+	box-shadow: inset 0 0 0 rgba(255, 255, 255, $opacity), 0 1px 1px rgba(0, 0, 0, $opacity)
+
+=button_styles
+	text-align: center
+	cursor : pointer
+	border-radius : 2px
+	background-color : 222222 //202020 //393939 //#fafafa //rgba(65, 24, 24, 1)
+	color : fafafa
+	text-shadow : 0 1px 1px rgba(0, 0, 0, 0.1)
+	+box_shadow(1)
+	border-width : 0.1rem
+	border-style : solid
+	border-color : 444444
+	margin-top : 0.12em		
+	margin-bottom : 0.18em
+	&:hover
+		//background-color : dddddd
+		//color : 666666
+		background-color : 161616
+		
+// My Override mixin
+=susy-grid-background
+	+grid-background($total-columns, $column-width, $gutter-width, $base-line-height, $side-gutter-width, $force-fluid: true)
+
+// establish your vertical baseline grid.
++establish-baseline
+
+// extend this class to show your grid.
+.grid
+	+susy-grid-background
+
+.row-fluid
+	min-height : 0px
+	@for $i from 1 through 10
+		.span#{$i}
+			+span-columns($i*3,$total-columns)
+	.span11, .span12
+		width : 0px
+
+body
+	background-color : #000000
+	font-family : Rokkitt
+	color : #222222
+	
+#background_container
+	background-color : #fafafa
+	#header_bg_container
+		+box_shadow(0.2)
+		background-color : #dddddd
+		background-image : url('/img/use_your_illusion.png') //url('/img/subtle_carbon.png')
+	
+section.content
+	//@extend .grid
+	// calling susy's container mixin will apply the grid to that element.
+	+container
+	max-width : 80%
+	#app_header
+		.span10
+			.title-frame
+				+pre(1,30)
+				+leader(1)
+				h2
+					+adjust-font-size-to($base-font-size * 3, 3)
+					display : inline-block
+					font-family : ubuntu
+					color : ffffff
+	#app_nav
+		.span10
+			+trailer(1)
+			color : ffffff
+			ul
+				+pre(1,30)
+				margin-bottom : 0em
+				li
+					+span-columns(5,30)
+					a
+						margin : 0em
+						padding : 0em
+						margin-top : 0em
+						margin-bottom : 0em
+						padding-top : 0em
+						padding-bottom : 0em
+						font-family : Rokkitt
+						+box_shadow(0.2)
+						+button_styles
+						+adjust-leading-to(1.75)
+						//+adjust-leading-to(2)
+						&:hover
+							cursor : pointer
+							+color_transition
+	#app_container
+		+padding-trailer(3)
+		#about_me_container
+			//+padding-trailer(1)
+			.row-fluid
+				.span6
+					margin : 0px
+					+omega
+					float : left
+					+leader(0.5, $base-font-size)
+					.row-fluid
+						h2
+							font-family : Ubuntu
+							+adjust-font-size-to($base-font-size * 2, 3)
+					.row-fluid
+						p
+							+leader(0.5)
+							font-family : Rokkitt
+							+span-columns(18,18)
+					
+				.span4
+					+span-columns(11,30)
+					margin : 0px
+					img
+						+padding-leader(1.5)
+						width : 100%
+						+post(1,11)
+						+span-columns(9,11)
+						+pre(1,11)
+	#projects_gallery
+		+pre(1,30)
+		+leader(1)
+		#thumbnail_column
+			+span-columns(5,30)
+			#thumbnail_gallery
+				+span-columns(4,5)
+				.thumbnails
+					.thumbnail
+						margin : 0px
+						+trailer(1.25)
+						+leader(0.25)
+						//margin-bottom : $base-line-height / 4
+						border-width : 0.1rem
+						border-style : solid
+						border-color : #dddddd
+						.thumbnail-frame
+							//height : $base-line-height * 2
+							//margin-top : $base-line-height / 4
+							overflow : hidden
+							img
+								margin-top : -2%
+		#project_container
+			//+pull(1,30)
+			margin : 0px
+			.row-fluid
+				.span6
+					+span-columns(16,24)
+					.title-container
+						font-family : Rokkitt
+						+adjust-font-size-to($base-font-size * 3)
+						color : #222222
+					//+trailer(1)
+			.row-fluid
+				.span2
+					margin : 0px
+					+span-columns(8,24)
+					+omega
+					.live-link-container
+						+post(1,8)
+						+adjust-leading-to(1.75)
+						#live_link_button
+							+span-columns(6,7)
+							+omega
+							+button_styles
+							+box_shadow(0.2)
+							margin-top : 0.8em
+							background-color : #dddddd
+							color : #333333
+							text-shadow : none
+							border : none
+							&:hover
+								background-color: #cfcfcf
+								+color_transition
+								color: #333333
+		.image-outer-container
+			//+leader(0.25)
+			+span-columns(23,24)
+			.image-inner-container
+				#main_image
+					margin : 0px
+					//border-width : 3px
+					//border-color : #333333
+					//border-style : solid
+		.body-container
+			+span-columns(23,24)
+		#technology-container
+			+leader(1)
+			+span-columns(23,24)
+			.row-fluid
+				//height : 2 * $base-line-height
+				.span2
+					margin : 0px
+					+span-columns(3,24)
+					+adjust-leading-to(2)
+					//font-weight : bold
+					text-align : center
+				.span8
+					margin : 0px
+					+span-columns(19,24)
+					//+pre(1)
+					.thumbnails
+						li
+							margin-bottom : 0px
+							+adjust-leading-to(2)
+							+trailer(0.5)
+							background-color : #dddddd
+						.thumbnail
+							+adjust-leading-to(1.5)
+							margin-top : 0.3em
+							//height : 2 * $base-line-height
+							padding : 0px 20px 0px 20px
+							margin-right : $gutter-width
+							margin-left : 0px
+							//+box_shadow(0.2)
+							border-radius : 3px
+			
+//.test-grid
+//	@extend .grid
+//	width : 100%
+//	height : 100%
+
+//.nav
+//	@include span-columns(4,16)
+//.wide
+//	+span-columns(14,16)
+//	+prefix(1,16)
+//	+suffix(1,16)
+//	+omega
+//	.inner-wide
+//		@include span-columns(4,10)
+//		+box-sizing(border-box)
+//		text-align : center
+//		h2
+//			display : inline-block
+//			+adjust-font-size-to($base-font-size * 3)
+//			@include leading-border(2px, 1, $base-font-size * 3)
+//			@include trailing-border(2px, 1, $base-font-size * 3)
+//			+trailer(2, $base-font-size * 3)
+//			//+rhythm-borders(1px, 1, $base-font-size * 3)
+//			//+rhythm(0,1,1,0,$base-font-size * 3)
+//			+leader(2, $base-font-size * 3)

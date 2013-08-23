@@ -77,6 +77,7 @@ $ ->
 				success : (collection,response) ->
 					$('#thumbnail_gallery').html projectThumbnailsView.render().el
 					$('#thumbnail_gallery').find('.thumbnail-frame').eq(0).children('img').eq(0).trigger 'click'
+					#$('#about_me_link').trigger 'click'
 					console.log $('#thumbnail_gallery').find('.thumbnail-frame').eq(0).children('img').eq(0)
 					
 			$('#thumbnail_gallery').on 'click', '.thumbnail', (event) ->
@@ -92,7 +93,7 @@ $ ->
 				projectCollectionView = new ProjectCollectionView
 					collection : projectCollection
 				$('#project_container').html projectCollectionView.render(project_id).el
-				
+				$('#main_image').baseline 27
 				#alert $('#thumbnail_gallery').find('.thumbnail-frame')
 	
 	$(document).ready ->
@@ -100,7 +101,7 @@ $ ->
 		$('#about_me_link').on 'click', (event) ->
 			$.get '/main/about', (about_view) ->
 				$('#app_container').html about_view
-		
+				#$('#about_me_image').baseline 24
 		
 		$('#projects_link').on 'click', (event) ->
 			$.get '/projects', (projects_view) ->
@@ -111,3 +112,5 @@ $ ->
 		$('#contact_me_link').on 'click', (event) ->
 			$.get '/main/contact', (contact_view) ->
 				$('#app_container').html contact_view
+		
+		$('#projects_link').trigger 'click'

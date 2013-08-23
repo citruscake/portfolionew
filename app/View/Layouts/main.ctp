@@ -1,21 +1,22 @@
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
     <link href='/css/bootstrap.css' rel='stylesheet' type='text/css'>
-    <link href='/css/site_styles.css' rel='stylesheet' type='text/css'>
+    <link href='/css/styles.css' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Quattrocento' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Allan:bold' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Cardo' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
     <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js' type='text/javascript'></script>
     <script src='./js/underscore.js' type='text/javascript'></script>
     <script src='./js/backbone.js' type='text/javascript'></script>
     <script src='./js/portfolio.js' type='text/javascript'></script>
+    <script src='./js/baseline.js' type='text/javascript'></script>
   </head>
   <body>
-    <div id='gradient_container'>
-      <div class='container-fluid' id='app_header'>
-        <div class='header_inner_container'>
-          <div class='row-fluid'>
-            <div class='span6 left-frame'>
+    <div class='clearfix' id='background_container'>
+      <div id='header_bg_container'>
+        <section class='content'>
+          <div class='row-fluid' id='app_header'>
+            <div class='span10'>
               <div class='title-frame'>
                 <h2>
                   Ed's Portfolio
@@ -23,8 +24,8 @@
               </div>
             </div>
           </div>
-          <div class='row-fluid'>
-            <div class='span12 right-frame'>
+          <div class='row-fluid' id='app_nav'>
+            <div class='span10'>
               <ul class='nav nav-pills'>
                 <li>
                   <a id='about_me_link'>
@@ -44,14 +45,17 @@
               </ul>
             </div>
           </div>
+        </section>
+      </div>
+      <section class='content'>
+        <div id='app_container'>
+          <?php
+          	echo $content_for_layout
+          ?>
         </div>
-      </div>
-      <div class='container-fluid' id='app_container'>
-        <?php
-        	echo $content_for_layout
-        ?>
-      </div>
-      <div id='templates'></div>
+      </section>
+      <div id='footer_bg_container'></div>
     </div>
+    <div id='templates'></div>
   </body>
 </html>

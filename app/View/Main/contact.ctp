@@ -15,7 +15,7 @@
         <div class='row-fluid'>
           <div class='span6 left-frame'>
             <label class='control-label' for='email_address'>
-              Your email :
+              Email:
             </label>
           </div>
           <div class='span6 right-frame'>
@@ -36,7 +36,7 @@
         <div class='row-fluid'>
           <div class='span6 left-frame'>
             <label class='control-label' for='full_name'>
-              Name :
+              Name:
             </label>
           </div>
           <div class='span6 right-frame'>
@@ -54,7 +54,7 @@
         <div class='row-fluid'>
           <div class='span6 left-frame'>
             <label class='control-label' for='message_subject'>
-              Subject :
+              Subject:
             </label>
           </div>
           <div class='span6 right-frame'>
@@ -72,7 +72,7 @@
         <div class='row-fluid'>
           <div class='span6 left-frame'>
             <label class='control-label' for='message_body'>
-              Message :
+              Message:
             </label>
           </div>
           <div class='span6 right-frame'>
@@ -86,7 +86,7 @@
   </div>
   <div class='row-fluid form-row'>
     <div class='span12'>
-      <div class='btn' id='submit_contact_us_link'>
+      <div id='submit_contact_us_link'>
         Send
       </div>
     </div>

@@ -1,17 +1,17 @@
 <div class='row-fluid'>
-  <div class='span8'>
+  <div class='span6'>
     <div class='title-container'>
       <h2>
         <%= title %>
       </h2>
     </div>
   </div>
-  <div class='span4'>
+  <div class='span2'>
     <div class='live-link-container'>
       <a href="<%= live_site_url %>">
-      	<div id ="live-link-button">
+      	<div id="live_link_button">
       		<h4>
-      			View Live Site >
+      			View Live Site
       		</h4>
       	</div>
       </a>
@@ -19,11 +19,11 @@
   </div>
 </div>
 <div class='row-fluid'>
-  <div class='span12'>
+  <div class='span10'>
     <div class='row-fluid'>
-      <div class='span12'>
+      <div class='span10'>
         <div class='row-fluid'>
-          <div class='span12'>
+          <div class='span10'>
             <div class='image-outer-container'>
               <div class='image-inner-container'>
                 <img id="main_image" src="<%= image_url[0] %>" />
@@ -31,31 +31,21 @@
             </div>
           </div>
         </div>
-        <!-- /.row-fluid -->
-        <!-- /	.span12 -->
-        <!-- /		.alts-outer-container -->
-        <!-- /			.alts-inner-container -->
-        <!-- /				.row-fluid -->
-        <!-- /					:plain -->
-        <!-- /						<% _.each(image_url, function(url) { %> -->
-        <!-- /							<div class="alt-frame span1" style="background-image:url('<%= url %>')"> -->
-        <!-- /							</div> -->
-        <!-- /						<% }); %> -->
         <div class='row-fluid'>
-          <div class='span12'>
+          <div class='span10'>
             <div class='body-container'>
               <%= body %>
             </div>
           </div>
         </div>
         <div class='row-fluid'>
-          <div class='span12'>
-            <div class='technology-container'>
+          <div class='span10'>
+            <div id='technology-container'>
               <div class='row-fluid languages'>
                 <div class='span2'>
                   Languages:
                 </div>
-                <div class='span10'>
+                <div class='span8'>
                   <ul class='thumbnails'>
                     <% if (!(languages['language'] instanceof Array)) { %>
                     	<li class="thumbnail"><%= languages['language'] %></li>
@@ -71,7 +61,7 @@
                 <div class='span2'>
                   Libraries:
                 </div>
-                <div class='span10'>
+                <div class='span8'>
                   <ul class='thumbnails'>
                     <% if (!(libraries['library'] instanceof Array)) { %>
                     	<li class="thumbnail"><%= libraries['library'] %></li>
@@ -87,7 +77,7 @@
                 <div class='span2'>
                   Tools:
                 </div>
-                <div class='span10'>
+                <div class='span8'>
                   <ul class='thumbnails'>
                     <% if (!(tools['tool'] instanceof Array)) { %>
                     	<li class="thumbnail"><%= tools['tools'] %></li>
@@ -103,7 +93,7 @@
                 <div class='span2'>
                   Other:
                 </div>
-                <div class='span10'>
+                <div class='span8'>
                   <ul class='thumbnails'>
                     <% if (!(others['other'] instanceof Array)) { %>
                     	<li class="thumbnail"><%= others['other'] %></li>

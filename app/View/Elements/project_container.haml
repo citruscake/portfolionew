@@ -1,50 +1,39 @@
 .row-fluid
-	.span8
+	.span6
 		.title-container
 			%h2
 				<%= title %>
-	.span4
+	.span2
 		.live-link-container
 			:plain
 				<a href="<%= live_site_url %>">
-					<div id ="live-link-button">
+					<div id="live_link_button">
 						<h4>
-							View Live Site >
+							View Live Site
 						</h4>
 					</div>
 				</a>
 .row-fluid
-	
-	.span12
+	.span10
 		.row-fluid
-			.span12
+			.span10
 				.row-fluid
-					.span12
+					.span10
 						.image-outer-container
 							.image-inner-container
 								:plain
 									<img id="main_image" src="<%= image_url[0] %>" />
-				//.row-fluid
-				//	.span12
-				//		.alts-outer-container
-				//			.alts-inner-container
-				//				.row-fluid
-				//					:plain
-				//						<% _.each(image_url, function(url) { %>
-				//							<div class="alt-frame span1" style="background-image:url('<%= url %>')">
-				//							</div>
-				//						<% }); %>
 				.row-fluid
-					.span12
+					.span10
 						.body-container
 							<%= body %>						
 				.row-fluid
-					.span12
-						.technology-container
+					.span10
+						#technology-container
 							.row-fluid.languages
 								.span2
 									Languages: 
-								.span10
+								.span8
 									%ul.thumbnails
 										:plain
 											<% if (!(languages['language'] instanceof Array)) { %>
@@ -57,7 +46,7 @@
 							.row-fluid.libraries
 								.span2
 									Libraries:
-								.span10
+								.span8
 									%ul.thumbnails
 										:plain
 											<% if (!(libraries['library'] instanceof Array)) { %>
@@ -70,7 +59,7 @@
 							.row-fluid.tools
 								.span2
 									Tools:
-								.span10
+								.span8
 									%ul.thumbnails
 										:plain
 											<% if (!(tools['tool'] instanceof Array)) { %>
@@ -83,7 +72,7 @@
 							.row-fluid.others
 								.span2
 									Other:
-								.span10
+								.span8
 									%ul.thumbnails
 										:plain
 											<% if (!(others['other'] instanceof Array)) { %>

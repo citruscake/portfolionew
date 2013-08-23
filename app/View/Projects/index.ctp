@@ -1,15 +1,15 @@
 <div id='projects_gallery'>
   <div class='row-fluid'>
-    <div class='span12'>
+    <div class='span10'>
       <div class='row-fluid'>
-        <div class='span1' id='thumbnail_column'>
+        <div class='span2' id='thumbnail_column'>
           <div class='row-fluid'>
             <div class='row-fluid'>
-              <div class='span12' id='thumbnail_gallery'></div>
+              <div id='thumbnail_gallery'></div>
             </div>
           </div>
         </div>
-        <div class='span10' id='project_container'></div>
+        <div class='span8' id='project_container'></div>
       </div>
     </div>
   </div>

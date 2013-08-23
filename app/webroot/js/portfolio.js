@@ -106,7 +106,8 @@
           projectCollectionView = new ProjectCollectionView({
             collection: projectCollection
           });
-          return $('#project_container').html(projectCollectionView.render(project_id).el);
+          $('#project_container').html(projectCollectionView.render(project_id).el);
+          return $('#main_image').baseline(27);
         });
       });
     };
@@ -122,11 +123,12 @@
           return loadProjects();
         });
       });
-      return $('#contact_me_link').on('click', function(event) {
+      $('#contact_me_link').on('click', function(event) {
         return $.get('/main/contact', function(contact_view) {
           return $('#app_container').html(contact_view);
         });
       });
+      return $('#projects_link').trigger('click');
     });
   });
 
