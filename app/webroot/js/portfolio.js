@@ -11,12 +11,20 @@
           tagName: 'div',
           idAttribute: 'project_id',
           template: _.template($('#project_container_template').html()),
+          events: {
+            'click #live_link_button': 'openSite'
+          },
           render: function() {
             var attributes;
             attributes = this.model.toJSON();
             this.$el.html(this.template(attributes));
             console.log(attributes);
             return this;
+          },
+          openSite: function() {
+            var url;
+            url = this.model.get('live_site_url');
+            return window.open(url, '_blank');
           }
         });
         window.ProjectThumbnailView = Backbone.View.extend({
@@ -127,6 +135,25 @@
         return $.get('/main/contact', function(contact_view) {
           return $('#app_container').html(contact_view);
         });
+      });
+      $('#app_container').on('click', '#view_cv_button', function(event) {
+        var url;
+        url = '/pdf/CV.pdf';
+        return window.open(url, '_blank');
+      });
+      $('#app_container').on('focus', 'input, textarea', function(event) {
+        var id;
+        id = event.target.id;
+        return $('#' + id).parent().animate({
+          'background-color': '#aaaaaa'
+        }, 100);
+      });
+      $('#app_container').on('focusout', 'input, textarea', function(event) {
+        var id;
+        id = event.target.id;
+        return $('#' + id).parent().animate({
+          'background-color': 'rgb(192, 179, 189)'
+        }, 100);
       });
       return $('#projects_link').trigger('click');
     });

@@ -1,6 +1,6 @@
 #contact_container
 	.row-fluid.title-frame
-		.span12
+		.span10
 			%h2
 				Get in touch
 			:plain
@@ -8,64 +8,68 @@
 					echo $this->Form->create("Contact_us", array("id" => "Contact_us", "url" => array("controller" => "main", "action" => "contact"), 'class'=>'form-horizontal')); 
 				?>
 	.row-fluid.form-row
-		.span10
+		.span8
 			.control-group
 				.row-fluid
-					.span6.left-frame
+					.left-frame
 						%label{:for => "email_address",
 							:class => "control-label"}
 							Email:
-					.span6.right-frame
+					.right-frame
 						.controls
-							%input{:type => "text",
-								:name => "email_address",
-								:id => "contact_email_address",
-								:placeholder => "Email address"}
-		.span2
-			.contact_email_symbol
+							#contact_email_container
+								%input{:type => "text",
+									:name => "email_address",
+									:id => "contact_email_address",
+									:placeholder => "Email address"}
+		//.span2
+		//	.contact_email_symbol
 	.row-fluid.form-row
-		.span12
+		.span10
 			.control-group
 				.row-fluid
-					.span6.left-frame
+					.left-frame
 						%label{:for => "full_name",
 							:class => "control-label"}
 							Name:
-					.span6.right-frame
+					.right-frame
 						.controls
-							%input{:type => "text",
-								:name => "full_name",
-								:id => "full_name",
-								:placeholder => "Name"}
+							#full_name_container
+								%input{:type => "text",
+									:name => "full_name",
+									:id => "full_name",
+									:placeholder => "Name"}
 	.row-fluid.form-row
-		.span12
+		.span10
 			.control-group
 				.row-fluid
-					.span6.left-frame
+					.left-frame
 						%label{:for => "message_subject",
 							:class => "control-label"}
 							Subject:
-					.span6.right-frame
+					.right-frame
 						.controls
-							%input{:type => "text",
-								:name => "message_subject",
-								:id => "message_subject",
-								:placeholder => "Subject"}
+							#message_subject_container
+								%input{:type => "text",
+									:name => "message_subject",
+									:id => "message_subject",
+									:placeholder => "Subject"}
 	.row-fluid.form-row
-		.span12
+		.span10
 			.control-group
 				.row-fluid
-					.span6.left-frame
+					.left-frame
 						%label{:for => "message_body",
 								:class => "control-label"}
 							Message:
-					.span6.right-frame
+					.right-frame
 						.controls
-							%textarea{:rows => "5",
-								:name => "message_body",
-								:id => "message_body",
-								:placeholder => "Message"}
+							#message_body_container
+								%textarea{:rows => "5",
+									:name => "message_body",
+									:id => "message_body",
+									:placeholder => "Message"}
 	.row-fluid.form-row
-		.span12
+		.span10
 			#submit_contact_us_link
 				Send

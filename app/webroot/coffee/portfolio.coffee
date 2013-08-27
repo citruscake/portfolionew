@@ -10,11 +10,16 @@ $ ->
 				tagName : 'div'
 				idAttribute : 'project_id'
 				template : _.template $('#project_container_template').html()
+				events :
+					'click #live_link_button' : 'openSite'
 				render : ->
 					attributes = this.model.toJSON()
 					this.$el.html this.template attributes
 					console.log attributes
 					return this
+				openSite : ->
+					url = this.model.get 'live_site_url'
+					window.open url, '_blank'
 		
 			window.ProjectThumbnailView = Backbone.View.extend
 				tagName : 'li'
@@ -113,4 +118,20 @@ $ ->
 			$.get '/main/contact', (contact_view) ->
 				$('#app_container').html contact_view
 		
+		$('#app_container').on 'click', '#view_cv_button', (event) ->
+			url = '/pdf/CV.pdf'
+			window.open url, '_blank'
+		
+		$('#app_container').on 'focus', 'input, textarea', (event) ->
+			id = event.target.id
+			$('#'+id).parent().animate
+				'background-color' : '#aaaaaa'
+			, 100
+
+		$('#app_container').on 'focusout', 'input, textarea', (event) ->
+			id = event.target.id
+			$('#'+id).parent().animate
+				'background-color' : 'rgb(192, 179, 189)'
+			, 100
+			
 		$('#projects_link').trigger 'click'

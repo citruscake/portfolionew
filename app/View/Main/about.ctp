@@ -17,6 +17,16 @@
           Etiam eget iaculis justo. Nulla facilisi. Vestibulum neque erat, dictum et rutrum vel, ullamcorper eu lectus. Nulla malesuada nulla non adipiscing auctor. Etiam tempor pharetra leo vitae bibendum. Duis ac adipiscing sem, et tincidunt leo. Pellentesque non pulvinar leo. Suspendisse rutrum consectetur porta. Praesent convallis non nisl id sagittis.
         </p>
       </div>
+      <div class='row-fluid'>
+        <div class='cv_button_container'>
+          <div id='view_cv_button'>
+            <a>
+              View my CV
+              <i class='icon-share icon-white'></i>
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

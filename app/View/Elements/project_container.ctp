@@ -8,10 +8,13 @@
   </div>
   <div class='span2'>
     <div class='live-link-container'>
-      <a href="<%= live_site_url %>">
+      <?php
+      	//<a href="<%= live_site_url %>">
+      ?>
+      <a href="#">
       	<div id="live_link_button">
       		<h4>
-      			View Live Site
+      			View live site <i class="icon-share icon-white"></i>
       		</h4>
       	</div>
       </a>
