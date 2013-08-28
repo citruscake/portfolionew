@@ -22,8 +22,7 @@
 									:name => "email_address",
 									:id => "contact_email_address",
 									:placeholder => "Email address"}
-		//.span2
-		//	.contact_email_symbol
+						#contact_email_symbol_container
 	.row-fluid.form-row
 		.span10
 			.control-group
@@ -71,5 +70,17 @@
 									:placeholder => "Message"}
 	.row-fluid.form-row
 		.span10
-			#submit_contact_us_link
-				Send
+			#submit_contact_us_container
+				#submit_contact_us_button
+					Send
+					%i{:class => "icon-envelope icon-white"}
+	.row-fluid.form-row
+		.span10
+			.alert.alert-success
+				%em
+					Success!
+				Thank you for your message, I'll be in contact soon.
+			.alert.alert-error
+				%em
+					Error!
+				The message could not be sent. You can try contacting me at efblundell[at]hotmail.co.uk instead.

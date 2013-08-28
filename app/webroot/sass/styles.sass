@@ -28,10 +28,13 @@ $header_bg : rgba(151, 151, 151, 0.2) //rgba(151, 50, 50, 0.2)
 
 =input_field	
 	padding: 0.2em 0.2em 0.2em 0.2em
-	margin-top: 0.1em
-	background-color : rgb(192, 179, 189) //rgb(85, 73, 82) //#828991
+	margin-top: 0.2em
+	background-color : #fafafa //rgb(192, 179, 189) //rgb(85, 73, 82) //#828991
 	border-radius : 2px
-	+box_shadow(0.2)
+	border-width : 1px
+	border-style : solid
+	border-color : #999999
+	//+box_shadow(0.2)
 	input, textarea
 		background-color : transparent
 		border : none
@@ -44,6 +47,10 @@ $header_bg : rgba(151, 151, 151, 0.2) //rgba(151, 50, 50, 0.2)
 			//outline : none
 			color : #333333
 			//background-color : #333333
+	textarea
+		//height : 116em
+		margin-bottom : 0.2em
+		resize : vertical
 	
 =button_styles
 	text-align: center
@@ -135,7 +142,7 @@ section.content
 							+color_transition
 	#app_container
 		//background-color : #fafafa
-		//+padding-trailer(3)
+		+padding-trailer(3)
 		#about_me_container
 			+padding-trailer(3)
 			.row-fluid
@@ -211,10 +218,13 @@ section.content
 			.row-fluid
 				.span6
 					+span-columns(16,24)
+					+trailer(0.3)
 					.title-container
 						font-family : Rokkitt
 						+adjust-font-size-to($base-font-size * 3)
 						color : #222222
+						//margin-bottom : -0.1em
+						//margin-top : 0.1em
 					//+trailer(1)
 			.row-fluid
 				.span2
@@ -230,7 +240,7 @@ section.content
 							+omega
 							+button_styles
 							+box_shadow(0.2)
-							margin-top : 0.8em
+							margin-top : 0.6em
 							//background-color : #dddddd
 							//color : #333333
 							text-shadow : none
@@ -294,7 +304,7 @@ section.content
 							+box_shadow(0.1)
 						.thumbnail
 							+adjust-leading-to(1.5)
-							margin-top : 0.3em
+							margin-top : 0.2em
 							//height : 2 * $base-line-height
 							padding : 0px 20px 0px 20px
 							margin-right : $gutter-width
@@ -325,12 +335,47 @@ section.content
 							+span-columns(21,24)
 							+omega
 							#contact_email_container
+								box-sizing : border-box
 								+input_field
 								+span-columns(8,21)
 								#contact_email_address
 									padding : 0.5em
 									width : 100%
+							#contact_email_symbol_container
+								+span-columns(2,21)
+								+padding-leader(0.65)
 			.span10
+				#submit_contact_us_container
+					padding-right : 0.2em
+					#submit_contact_us_button
+						+adjust-leading-to(1.75)
+						+button_styles
+						+pre(14,30)
+						+span-columns(5,30)
+						margin-top : 0.1em
+						margin-bottom : 0.2em
+						i
+							margin-top : 0.1em
+							margin-left : 0.1em
+				.alert
+					text-align : center
+					+leader(0.25)
+					+adjust-leading-to(1)
+					//border-width : 1px
+					//border-color : #999999
+					//border-style : solid
+					box-sizing : border-box
+					+span-columns(16,30)
+					+pre(3,30)
+					padding-left : 1em
+					padding-right : 1em
+					+padding-leader(0.5)
+					+padding-trailer(0.5)
+					border-radius : 2px
+					+box_shadow(0.1)
+					display : none
+					em
+						font-weight : bold
 				.control-group
 					margin-bottom : 0px
 					.row-fluid
@@ -342,18 +387,22 @@ section.content
 							+omega
 							#full_name_container
 								+span-columns(8,27)
+								box-sizing : border-box
 								+input_field
 								#full_name
 									padding : 0.5em
 									width : 100%
 							#message_subject_container
+								box-sizing : border-box
 								+span-columns(16,27)
 								+input_field
 								#message_subject
 									padding : 0.5em
 									width : 100%
 							#message_body_container
+								box-sizing : border-box
 								+span-columns(16,27)
+								margin-bottom : 0.3em
 								+input_field
 								#message_body
 									padding : 0.5em

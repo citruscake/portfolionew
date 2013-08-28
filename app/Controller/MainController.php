@@ -44,6 +44,23 @@ class MainController extends AppController {
 	}
 	
 	public function contact() {
+		if($this->request->is('post')) {
+			$this->autoRender = false;
+			
+			$message_subject = $this->request['data']['message_subject']." [via Portfolio]";
+			$reply_email_address = $this->request['data']['email_address'];
+			$message_body = $this->request['data']['message_body'];
+			$sender_name = $this->request['data']['full_name'];
+		
+			$headers = 'From: '.$reply_email_address;
+
+			if(mail("efblundell@hotmail.co.uk", $message_subject, $message_body, $headers)) {
+				echo json_encode(array("status"=>"success"));
+			}
+			else {
+				echo json_encode(array("status"=>"failure"));
+			}
+		}
 		$this->layout = "ajax";
 		$this->set('variable', "hello");
 	}

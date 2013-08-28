@@ -7,10 +7,12 @@
     <link href='http://fonts.googleapis.com/css?family=Rokkitt' rel='stylesheet' type='text/css'>
     <script src='//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js' type='text/javascript'></script>
     <script src='//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js' type='text/javascript'></script>
-    <script src='./js/underscore.js' type='text/javascript'></script>
-    <script src='./js/backbone.js' type='text/javascript'></script>
+    <script src='./js/vendor/underscore.js' type='text/javascript'></script>
+    <script src='./js/vendor/backbone.js' type='text/javascript'></script>
+    <script src='/js/vendor/bootstrap.js' type='text/javascript'></script>
+    <script src='./js/vendor/timeout/jquery.ba-dotimeout.min.js' type='text/javascript'></script>
     <script src='./js/portfolio.js' type='text/javascript'></script>
-    <script src='./js/baseline.js' type='text/javascript'></script>
+    <script src='./js/vendor/baseline.js' type='text/javascript'></script>
   </head>
   <body>
     <div class='clearfix' id='background_container'>

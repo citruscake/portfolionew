@@ -1,6 +1,6 @@
 (function() {
   $(function() {
-    var loadProjects;
+    var createPopover, emailCheck, loadProjects, toggleSubmit;
     loadProjects = function() {
       var initialiseModels, projectCollection, projectCollectionView;
       projectCollectionView = null;
@@ -119,6 +119,28 @@
         });
       });
     };
+    emailCheck = function(email) {
+      var regex;
+      regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      return regex.test(email);
+    };
+    createPopover = function(element, message) {
+      $(element).popover({
+        content: message
+      });
+      return $(element).popover('show');
+    };
+    toggleSubmit = function(isLoading) {
+      if (isLoading === true) {
+        $('#submit_contact_us_button').css('padding-top', '0.4em');
+        $('#submit_contact_us_button').css('padding-bottom', '0.4em');
+        return $('#submit_contact_us_button').html("<img src=\"/img/ajax-loader.gif\"/>");
+      } else {
+        $('#submit_contact_us_button').css('padding-top', '0em');
+        $('#submit_contact_us_button').css('padding-bottom', '0em');
+        return $('#submit_contact_us_button').html("Send <i class=\"icon-envelope icon-white\" />");
+      }
+    };
     return $(document).ready(function() {
       $('#about_me_link').on('click', function(event) {
         return $.get('/main/about', function(about_view) {
@@ -144,16 +166,89 @@
       $('#app_container').on('focus', 'input, textarea', function(event) {
         var id;
         id = event.target.id;
-        return $('#' + id).parent().animate({
-          'background-color': '#aaaaaa'
+        $('#' + id).parent().animate({
+          'border-color': '#333333'
         }, 100);
+        return $('#' + event.target.id).parent().popover('destroy');
       });
       $('#app_container').on('focusout', 'input, textarea', function(event) {
         var id;
         id = event.target.id;
         return $('#' + id).parent().animate({
-          'background-color': 'rgb(192, 179, 189)'
+          'border-color': '#999999'
         }, 100);
+      });
+      $('#app_container').on('keyup', '#contact_email_address', function(event) {
+        var email_address, isEmail;
+        email_address = $('#contact_email_address').val();
+        if (email_address !== "") {
+          isEmail = emailCheck(email_address);
+          if (isEmail === true) {
+            return $('#contact_email_symbol_container').html("<i class=\"icon-ok\"></i>");
+          } else {
+            return $('#contact_email_symbol_container').html("<i class=\"icon-remove\"></i>");
+          }
+        } else {
+          return $('#contact_email_symbol_container').html("");
+        }
+      });
+      $('#app_container').on('click', '#submit_contact_us_button', function(event) {
+        var data, email_address, full_name, isLoading, isTimerDone, message_body, message_subject;
+        email_address = $('#contact_email_address').val();
+        full_name = $('#full_name').val();
+        message_subject = $('#message_subject').val();
+        message_body = $('#message_body').val();
+        if (email_address === "") {
+          return createPopover('#contact_email_container', "Please enter your email address.");
+        } else if (emailCheck(email_address) === false) {
+          return createPopover('#contact_email_container', "Your email address is invalid.");
+        } else if (full_name === "") {
+          return createPopover('#full_name_container', "Please give your name.");
+        } else if (message_subject === "") {
+          return createPopover('#message_subject_container', "Please give your message subject.");
+        } else if (message_body = "") {
+          return createPopover('#message_body_container', "Please give your message body.");
+        } else {
+          isLoading = true;
+          isTimerDone = false;
+          toggleSubmit(isLoading);
+          $(this).doTimeout('change_button', 300, function() {
+            isTimerDone = true;
+            if (isLoading === false) {
+              return toggleSubmit(isLoading);
+            }
+          });
+          data = {
+            email_address: $('#contact_email_address').val(),
+            full_name: $('#full_name').val(),
+            message_subject: $('#message_subject').val(),
+            message_body: $('#message_body').val()
+          };
+          return $.post('/main/contact', data, function(json) {
+            var response;
+            isLoading = false;
+            if (isTimerDone === true) {
+              toggleSubmit(isLoading);
+            }
+            response = $.parseJSON(json);
+            if (response.status === "success") {
+              $('.alert-success').css('display', 'inline');
+              $('.alert-success').animate({
+                'opacity': 1
+              }, 300);
+            } else {
+              $('.alert-error').css('display', 'inline');
+              $('.alert-error').animate({
+                'opacity': 1
+              }, 300);
+            }
+            $('#app_container').off('click', '#submit_contact_us_button');
+            $('#contact_container label, #submit_contact_us_button, #message_body_container, #contact_email_container, #contact_email_symbol_container, #full_name_container, #message_subject_container').animate({
+              'opacity': 0.4
+            }, 300);
+            return $('#contact_container input, #contact_container textarea').prop('disabled', true);
+          });
+        }
       });
       return $('#projects_link').trigger('click');
     });
