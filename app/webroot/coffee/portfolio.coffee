@@ -1,4 +1,10 @@
 $ ->
+	animatePage = ->
+		$('#app_container').css 'opacity', 0.5
+		$('#app_container').animate
+			'opacity' : 1
+		, 200, "easeOutSine"
+
 	loadProjects = ->
 		projectCollectionView = null
 		projectCollection = null
@@ -28,7 +34,7 @@ $ ->
 					attributes = this.model.toJSON()
 					this.$el.html this.template attributes
 					$(this.el).addClass 'thumbnail'
-					$(this.el).find('.clickable_frame').attr 'id', this.model.get 'id'
+					$(this.el).attr 'id', this.model.get 'id'
 					return this
 	
 			window.ProjectCollection = Backbone.Collection.extend
@@ -81,23 +87,28 @@ $ ->
 			projectCollection.fetch
 				success : (collection,response) ->
 					$('#thumbnail_gallery').html projectThumbnailsView.render().el
-					$('#thumbnail_gallery').find('.thumbnail-frame').eq(0).children('img').eq(0).trigger 'click'
+					$('#thumbnail_gallery').find('.thumbnail-frame').eq(0).trigger 'click'
 					#$('#about_me_link').trigger 'click'
 					console.log $('#thumbnail_gallery').find('.thumbnail-frame').eq(0).children('img').eq(0)
+					animatePage()
 					
-			$('#thumbnail_gallery').on 'click', '.thumbnail', (event) ->
+					
+			$('#thumbnail_gallery').on 'click', '.thumbnail, .thumbnail-frame', (event) ->
 			#if $('event.target').hasClass('thumbnail')
 				project_id = $(event.target).attr 'id'
 			#else if $('event.target').hasClass('thumbnail_frame')
 			#	project_id = $(event.target).parent().attr 'id'
-		
-				console.log $(event.target)
+				#console.log $(event.target).parent()
 			
 				#project_id = $(event.target).parent().find('.thumbnail').attr 'id'
 				project = projectCollection.get project_id
 				projectCollectionView = new ProjectCollectionView
 					collection : projectCollection
 				$('#project_container').html projectCollectionView.render(project_id).el
+				$('#project_container').css 'opacity', 0.5
+				$('#project_container').animate
+					'opacity' : 1
+				, 200, "linear"
 				$('#main_image').baseline 27
 				#alert $('#thumbnail_gallery').find('.thumbnail-frame')
 	
@@ -123,21 +134,56 @@ $ ->
 	
 	$(document).ready ->
 		
+		about_view = null
+		contact_view = null
+		projects_view = null
+		current_view = null
+		
 		$('#about_me_link').on 'click', (event) ->
-			$.get '/main/about', (about_view) ->
-				$('#app_container').html about_view
-				#$('#about_me_image').baseline 24
+			if current_view != null
+				detachView()
+			current_view = "about"
+			if about_view == null
+				$.get '/main/about', (view) ->
+					$('#app_container').html view
+					animatePage()
+			else
+				$('#app_container').append about_view
+				animatePage()
 		
 		$('#projects_link').on 'click', (event) ->
-			$.get '/projects', (projects_view) ->
-				$('#app_container').html projects_view
-				loadProjects()
-
+			if current_view != null
+				detachView()
+			current_view = "projects"
+			if projects_view == null
+				$.get '/projects', (view) ->
+					$('#app_container').html view
+					$('#app_container').css 'opacity', 0
+					loadProjects()
+			else
+				$('#app_container').append projects_view
+				animatePage()
 				
 		$('#contact_me_link').on 'click', (event) ->
-			$.get '/main/contact', (contact_view) ->
-				$('#app_container').html contact_view
-		
+			if current_view != null
+				detachView()
+			current_view = "contact"	
+			if contact_view == null
+				$.get '/main/contact', (view) ->
+					$('#app_container').html view
+					animatePage()
+			else
+				$('#app_container').append contact_view
+				animatePage()
+				
+		detachView = ->
+			if current_view == "about"
+				about_view = $('#app_container').children().eq(0).detach()
+			else if current_view == "projects"
+				projects_view = $('#app_container').children().eq(0).detach()
+			else if current_view == "contact"
+				contact_view = $('#app_container').children().eq(0).detach()
+				
 		$('#app_container').on 'click', '#view_cv_button', (event) ->
 			url = '/pdf/CV.pdf'
 			window.open url, '_blank'
@@ -221,4 +267,4 @@ $ ->
 					, 300
 					$('#contact_container input, #contact_container textarea').prop 'disabled', true
 					
-		$('#projects_link').trigger 'click'
+		$('#about_me_link').trigger 'click'

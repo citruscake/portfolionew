@@ -12,10 +12,12 @@
       	//<a href="<%= live_site_url %>">
       ?>
       <a href="#">
-      	<div id="live_link_button">
-      		<h4>
-      			View live site <i class="icon-share icon-white"></i>
+      	<% if(live_site_url != "") { %>
+      		<div id="live_link_button">
+      			<h4>
+      				View live site <i class="icon-share icon-white"></i>
       		</h4>
+      	<% } %>
       	</div>
       </a>
     </div>

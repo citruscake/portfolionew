@@ -28,7 +28,7 @@ $header_bg : rgba(151, 151, 151, 0.2) //rgba(151, 50, 50, 0.2)
 
 =input_field	
 	padding: 0.2em 0.2em 0.2em 0.2em
-	margin-top: 0.2em
+	//margin-top: 0.2em
 	background-color : #fafafa //rgb(192, 179, 189) //rgb(85, 73, 82) //#828991
 	border-radius : 2px
 	border-width : 1px
@@ -49,14 +49,14 @@ $header_bg : rgba(151, 151, 151, 0.2) //rgba(151, 50, 50, 0.2)
 			//background-color : #333333
 	textarea
 		//height : 116em
-		margin-bottom : 0.2em
+		margin-bottom : 0.4em // 0.2em
 		resize : vertical
 	
 =button_styles
 	text-align: center
 	cursor : pointer
 	border-radius : 2px
-	background-color : 111111 //202020 //393939 //#fafafa //rgba(65, 24, 24, 1)
+	background-color : #111111 //202020 //393939 //#fafafa //rgba(65, 24, 24, 1)
 	color : fafafa
 	text-shadow : 0 1px 1px rgba(0, 0, 0, 0.1)
 	+box_shadow(1)
@@ -68,7 +68,8 @@ $header_bg : rgba(151, 151, 151, 0.2) //rgba(151, 50, 50, 0.2)
 	&:hover
 		//background-color : dddddd
 		//color : 666666
-		background-color : 161616
+		background-color : rgba(0, 91, 95, 1) //#189118 //#18181B //#191919 //161616
+		border-color : #111111
 		
 // My Override mixin
 =susy-grid-background
@@ -90,14 +91,14 @@ $header_bg : rgba(151, 151, 151, 0.2) //rgba(151, 50, 50, 0.2)
 		width : 0px
 
 body
-	background-color : #fafafa //rgb(226, 226, 226)
+	background-color : #060606 //#202127 //#242926 //#7A8B82 //#342636 //#4C354E //#fafafa //rgb(226, 226, 226)
 	font-family : Rokkitt
 	color : #222222
 	
 #background_container
 	//background-color : #fafafa
 	#header_bg_container
-		+box_shadow(0.2)
+		+box_shadow(0.8)
 		background-color : #dddddd
 		background-image : url('/img/dark_dotted2.png') //url('/img/subtle_carbon.png')
 	
@@ -118,13 +119,14 @@ section.content
 					color : ffffff
 	#app_nav
 		.span10
+			+span-columns(28,30)
+			+pre(1,30)
 			+trailer(1)
 			color : ffffff
 			ul
-				+pre(1,30)
 				margin-bottom : 0em
 				li
-					+span-columns(5,30)
+					+span-columns(5,28)
 					a
 						margin : 0em
 						padding : 0em
@@ -141,24 +143,31 @@ section.content
 							cursor : pointer
 							+color_transition
 	#app_container
-		//background-color : #fafafa
-		+padding-trailer(3)
+		//+padding-leader(0.2)
 		#about_me_container
-			+padding-trailer(3)
+			+box_shadow(0.5)
+			+trailer(1)
+			background-color : #fafafa
+			+leader(1)
+			+padding-trailer(1.8)
+			border-radius : 2px
+			+span-columns(28,30)
+			+pre(1,30)
 			.row-fluid
 				.span6
+					+span-columns(18,28)
 					margin : 0px
 					+omega
 					float : left
-					+leader(0.5, $base-font-size)
+					//+leader(0.5, $base-font-size)
 					.row-fluid
 						h2
 							font-family : Ubuntu
 							+adjust-font-size-to($base-font-size * 2, 3)
-						p
 							+leader(0.5)
+						p
 							font-family : Rokkitt
-							+span-columns(18,18)
+							+span-columns(17,18)
 						.cv_button_container
 							+leader(1)
 							#view_cv_button
@@ -171,8 +180,11 @@ section.content
 								+box_shadow(0.2)
 								+button_styles
 								+adjust-leading-to(1.75)
+								//+trailer(4/7)
 								margin-top : 0.1em
+								+post(1,18)
 								float : right
+								min-width : 120px
 								//+adjust-leading-to(2)
 								&:hover
 									cursor : pointer
@@ -182,46 +194,75 @@ section.content
 										text-decoration : none
 					
 				.span4
-					+span-columns(11,30)
+					+span-columns(10,28)
 					margin : 0px
 					img
-						+padding-leader(1.5)
+						+padding-leader(1.8)
 						width : 100%
 						+post(1,11)
 						+span-columns(9,11)
 						+pre(1,11)
 	#projects_gallery
-		+pre(1,30)
-		+padding-leader(0.7)
+		//+pre(1,30)
+		//+padding-leader(0.7)
+		+padding-leader(1)
 		#thumbnail_column
+			+pre(1,30)
+			//+leader(1)
+			//background-color : #cccccc
+			//border-radius : 2px
+			//border-width : 1px
+			//border-style : solid
+			//border-color : #999999
 			+span-columns(5,30)
+			//display : none
 			#thumbnail_gallery
-				+span-columns(4,5)
+				+padding-leader(0)
+				//display : none
 				.thumbnails
 					.thumbnail
+						+span-columns(5,5)
+						+button_styles
+						padding : 0px
+						border : none
 						margin : 0px
-						+trailer(1.25)
-						+leader(0.25)
-						//margin-bottom : $base-line-height / 4
-						border-width : 0.1rem
+						+padding-leader(0.75)
+						+adjust-leading-to(1)
+						+padding-trailer(0.75)
+						border-width : 1px
 						border-style : solid
-						border-color : #dddddd
+						border-color : #444444
+						box-sizing : border-box
+						+trailer(0.45)
+						text-align : center
+						margin-left : auto
+						//background-color : #222222 
+						&:hover
+							cursor : pointer
+							background-color: #18181B
+						margin-right : auto
 						.thumbnail-frame
-							//height : $base-line-height * 2
-							//margin-top : $base-line-height / 4
 							overflow : hidden
 							img
 								margin-top : -2%
+								height : $base-line-height * 2
+								+span-columns(5,5)
 		#project_container
-			//+pull(1,30)
+			border-radius : 2px
+			+box_shadow(0.5)
+			+span-columns(23,30)
+			background-color : #fafafa
 			margin : 0px
+			+trailer(1)
 			.row-fluid
 				.span6
-					+span-columns(16,24)
-					+trailer(0.3)
+					+span-columns(13,23)
+					+pre(1,23)
+					+trailer(1)
+					+leader(1)
 					.title-container
-						font-family : Rokkitt
-						+adjust-font-size-to($base-font-size * 3)
+						font-family : Ubuntu
+						+adjust-font-size-to($base-font-size * 2)
 						color : #222222
 						//margin-bottom : -0.1em
 						//margin-top : 0.1em
@@ -229,18 +270,20 @@ section.content
 			.row-fluid
 				.span2
 					margin : 0px
-					+span-columns(8,24)
+					+span-columns(8,23)
 					+omega
 					.live-link-container
+						+leader(1)
 						+post(1,8)
 						//+pre(2,8)
 						+adjust-leading-to(1.75)
 						#live_link_button
-							+span-columns(6,7)
+							min-width : 120px 
+							+span-columns(5,7)
 							+omega
 							+button_styles
 							+box_shadow(0.2)
-							margin-top : 0.6em
+							margin-top : 0.1em
 							//background-color : #dddddd
 							//color : #333333
 							text-shadow : none
@@ -248,7 +291,7 @@ section.content
 							h4
 								i
 									margin-top : 0.1em
-									margin-left : 0.1em
+									//margin-left : 0.1em
 							&:hover
 								//background-color: #cfcfcf
 								+color_transition
@@ -256,7 +299,8 @@ section.content
 								+box-shadow(0.2)
 		.image-outer-container
 			//+leader(0.25)
-			+span-columns(23,24)
+			+pre(1,23)
+			+span-columns(21,23)
 			.image-inner-container
 				#main_image
 					margin : 0px
@@ -265,7 +309,8 @@ section.content
 					//border-color : #333333
 					//border-style : solid
 		.body-container
-			+span-columns(23,24)
+			+pre(1,23)
+			+span-columns(21,23)
 			//background-color : #cfcfcf
 			//+box_shadow(0.2)
 			box-sizing : border-box
@@ -273,7 +318,8 @@ section.content
 			border-radius : 2px
 		#technology-container
 			//+leader(1)
-			+span-columns(23,24)
+			+pre(1,23)
+			+span-columns(21,23)
 			//background-color : #cfcfcf
 			//+box_shadow(0.2)
 			box-sizing : border-box
@@ -285,23 +331,25 @@ section.content
 				//height : 2 * $base-line-height
 				.span2
 					margin : 0px
-					+span-columns(3,24)
+					+span-columns(3,23)
 					+adjust-leading-to(2)
 					//font-weight : bold
-					text-align : left
+					text-align : right
+					margin-top : -0.2em
+					margin-bottom : 0.2em
 				.span8
 					margin : 0px
-					+span-columns(19,24)
+					+span-columns(19,23)
 					//+pre(1)
 					.thumbnails
 						li
 							margin-bottom : 0px
 							+adjust-leading-to(2)
 							//+trailer(0.5)
-							background-color: #222222
-							color: #fafafa
-							border : none
-							+box_shadow(0.1)
+							background-color: #eeeeee //#202127 //#666666
+							color: #333333//#fafafa //#fafafa
+							border : 1px solid #999999
+							+box_shadow(0.5)
 						.thumbnail
 							+adjust-leading-to(1.5)
 							margin-top : 0.2em
@@ -312,12 +360,19 @@ section.content
 							//+box_shadow(0.2)
 							border-radius : 3px
 	#contact_container
+		//min-width : 600px
 		+pre(1,30)
+		+trailer(1)
+		border-radius : 2px
+		+leader(1)
+		+span-columns(21,30)
+		background-color : #fafafa
 		.title-frame
+			+span-columns(18,21)
+			+pre(1,21)
 			display : inline-block
 			+leader(1)
 			+trailer(1)
-			+omega
 			h2
 				font-family : Ubuntu
 				+adjust-font-size-to(2 * $base-font-size)
@@ -325,35 +380,43 @@ section.content
 			+adjust-leading-to(2)
 			min-height : 0px
 			.span8
+				+span-columns(20,21)
 				.control-group
 					margin-bottom : 0px
 					.row-fluid
 						.left-frame
+							+pre(1,20)
 							min-height : 0px
-							+span-columns(3,24)
+							+span-columns(3,20)
+							+adjust-leading-to(1)
+							+padding-leader(0.4)
+							+trailer(0.6)
 						.right-frame
-							+span-columns(21,24)
+							+span-columns(16,20)
 							+omega
 							#contact_email_container
 								box-sizing : border-box
 								+input_field
-								+span-columns(8,21)
+								+span-columns(8,16)
 								#contact_email_address
 									padding : 0.5em
 									width : 100%
 							#contact_email_symbol_container
-								+span-columns(2,21)
-								+padding-leader(0.65)
+								+span-columns(2,16)
+								+padding-leader(0.55)
 			.span10
+				+span-columns(20,21)
 				#submit_contact_us_container
 					padding-right : 0.2em
 					#submit_contact_us_button
 						+adjust-leading-to(1.75)
 						+button_styles
-						+pre(14,30)
-						+span-columns(5,30)
-						margin-top : 0.1em
-						margin-bottom : 0.2em
+						+pre(15,20)
+						+span-columns(5,20)
+						//margin-top : 0.1em
+						//margin-top : 0.05em
+						//+leader(1)
+						margin-bottom : 0.25em //0.2em
 						i
 							margin-top : 0.1em
 							margin-left : 0.1em
@@ -365,8 +428,9 @@ section.content
 					//border-color : #999999
 					//border-style : solid
 					box-sizing : border-box
-					+span-columns(16,30)
-					+pre(3,30)
+					+span-columns(16,20)
+					+omega
+					+pre(4,20)
 					padding-left : 1em
 					padding-right : 1em
 					+padding-leader(0.5)
@@ -381,12 +445,15 @@ section.content
 					.row-fluid
 						.left-frame
 							min-height : 0px
-							+span-columns(3,30)
+							+span-columns(3,20)
+							+adjust-leading-to(1.75)
+							+trailer(0.25)
+							+pre(1,20)
 						.right-frame
-							+span-columns(27,30)
+							+span-columns(16,20)
 							+omega
 							#full_name_container
-								+span-columns(8,27)
+								+span-columns(8,16)
 								box-sizing : border-box
 								+input_field
 								#full_name
@@ -394,19 +461,122 @@ section.content
 									width : 100%
 							#message_subject_container
 								box-sizing : border-box
-								+span-columns(16,27)
+								+span-columns(16,16)
 								+input_field
 								#message_subject
 									padding : 0.5em
 									width : 100%
 							#message_body_container
 								box-sizing : border-box
-								+span-columns(16,27)
+								+span-columns(16,16)
 								margin-bottom : 0.3em
 								+input_field
 								#message_body
 									padding : 0.5em
 									width : 100%
+								
+
+@media screen and (max-width : 530px)
+	section.content			
+		#contact_container
+			min-width : 473px									
+								
+@media screen and (max-width : 720px)
+	#view_cv_button
+		a
+			i
+				display : none
+								
+@media screen and (max-width : 760px)
+	#live_link_button
+		h4
+			i
+				display : none
+
+@media screen and (max-width : 650px)
+	section.content
+		#projects_gallery
+			#thumbnail_column, #project_container
+				float : none
+				+span-columns(28,30)
+				+pre(1,30)
+			#thumbnail_column
+				+trailer(0.15)
+			#project_container
+				.row-fluid
+					.title-container
+						+adjust-font-size-to($base-font-size * 1)
+		#app_container
+			#about_me_container
+				padding-bottom : 1em
+				+span-columns(28,30)
+				+pre(1,30)
+				.row-fluid
+					+span-columns(28,28)
+					+omega
+					display : block
+					.span4
+						+span-columns(26,28)
+						float : none
+						display : none
+						img
+							display : none
+						//+span-columns(15,28)
+						//+pre(7,28)
+					.span6
+						+span-columns(26,28)
+						+pre(1,28)
+						float : none
+						display : block
+						.row-fluid
+							h2
+								+span-columns(20,26)
+								+pre(1,26)
+								margin-top : 0px
+							p
+								+span-columns(20,26)
+								+pre(1,26)
+								float : none
+							.cv_button_container
+								//+span-columns(12,26)
+								//+pre(1,26)
+								float : right
+	
+@media screen and (max-width : 820px)
+	section.content
+		#app_container
+			#technology-container
+				.row-fluid
+					.span8
+						.thumbnails
+							li
+								margin-top : -0.5em
+						
+@media screen and (max-width : 1000px)
+	section.content			
+		#contact_container
+			+span-columns(28,30)
+			+pre(1)			
+								
+@media screen and (max-width : 1152px)
+	#technology-container
+		.row-fluid
+			.span2
+				min-width : 85px
+									
+@media screen and (max-width : 1229px) 
+	//body
+	//	background-color : #000000
+	section.content
+		max-width : 100%
+
+@media screen and (max-width : 660px)
+	section.content
+		#app_nav
+			.span10
+				ul
+					li
+						min-width : 100px //638px
 //.test-grid
 //	@extend .grid
 //	width : 100%
