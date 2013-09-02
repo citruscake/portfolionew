@@ -217,6 +217,12 @@
         url = '/pdf/CV.pdf';
         return window.open(url, '_blank');
       });
+      $('#app_container').on('click', 'a', function(event) {
+        var url;
+        event.preventDefault();
+        url = $(event.target).attr('href');
+        return window.open(url, '_blank');
+      });
       $('#app_container').on('focus', 'input, textarea', function(event) {
         var id;
         id = event.target.id;

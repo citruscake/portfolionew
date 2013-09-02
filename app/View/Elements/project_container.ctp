@@ -31,7 +31,7 @@
           <div class='span10'>
             <div class='image-outer-container'>
               <div class='image-inner-container'>
-                <img id="main_image" src="<%= image_url[0] %>" />
+                <img id="main_image" src="<%= image_url %>" />
               </div>
             </div>
           </div>
@@ -84,13 +84,15 @@
                 </div>
                 <div class='span8'>
                   <ul class='thumbnails'>
-                    <% if (!(tools['tool'] instanceof Array)) { %>
-                    	<li class="thumbnail"><%= tools['tools'] %></li>
-                    <% } else {
-                    _.each(tools['tool'], function(item) { %>
-                    	<li class="thumbnail"><%= item %></li>
-                    	<% });
-                    } %>
+                    	<% if (!(tools['tool'] instanceof Array)) { %>
+                    		<% if(tools['tool'] != undefined) { console.log(tools['tool']);%>
+                    			<li class="thumbnail"><%= tools['tool'] %></li>
+                    	<% 	}
+                    	 } else {
+                    		_.each(tools['tool'], function(item) { %>
+                    			<li class="thumbnail"><%= item %></li>
+                    		<% });
+                    	} %>
                   </ul>
                 </div>
               </div>
@@ -103,7 +105,7 @@
                     <% if (!(others['other'] instanceof Array)) { %>
                     	<li class="thumbnail"><%= others['other'] %></li>
                     <% } else {
-                    	_.each(others.other, function(item) { %>
+                    	_.each(others['other'], function(item) { %>
                     		<li class="thumbnail"><%= item %></li>
                     	<% }); 
                     } %>

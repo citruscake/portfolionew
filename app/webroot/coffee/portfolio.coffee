@@ -187,6 +187,11 @@ $ ->
 		$('#app_container').on 'click', '#view_cv_button', (event) ->
 			url = '/pdf/CV.pdf'
 			window.open url, '_blank'
+			
+		$('#app_container').on 'click', 'a', (event) ->
+			event.preventDefault()
+			url = $(event.target).attr 'href'
+			window.open url, '_blank'
 		
 		$('#app_container').on 'focus', 'input, textarea', (event) ->
 			id = event.target.id

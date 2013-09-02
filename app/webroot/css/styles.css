@@ -148,6 +148,15 @@ body {
   font-family: Rokkitt;
   color: #222222;
 }
+body a {
+  text-decoration: underline;
+}
+body a:active, body a:visited {
+  color: #006166;
+}
+body a:hover {
+  color: #00a4ac;
+}
 
 #background_container #header_bg_container {
   -webkit-box-shadow: inset 0 0 0 rgba(255, 255, 255, 0.8), 0 1px 1px rgba(0, 0, 0, 0.8);
@@ -214,6 +223,7 @@ section.content #app_nav .span10 ul li a {
   box-shadow: inset 0 0 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
   text-align: center;
   cursor: pointer;
+  text-decoration: none;
   border-radius: 2px;
   background-color: #111111;
   color: fafafa;
@@ -298,6 +308,7 @@ section.content #app_container #about_me_container .row-fluid .span6 .row-fluid 
   box-shadow: inset 0 0 0 rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.2);
   text-align: center;
   cursor: pointer;
+  text-decoration: none;
   border-radius: 2px;
   background-color: #111111;
   color: fafafa;
@@ -368,6 +379,7 @@ section.content #projects_gallery #thumbnail_column #thumbnail_gallery .thumbnai
   display: inline;
   text-align: center;
   cursor: pointer;
+  text-decoration: none;
   border-radius: 2px;
   background-color: #111111;
   color: fafafa;
@@ -470,6 +482,7 @@ section.content #projects_gallery #project_container .row-fluid .span2 .live-lin
   display: inline;
   text-align: center;
   cursor: pointer;
+  text-decoration: none;
   border-radius: 2px;
   background-color: #111111;
   color: fafafa;
@@ -525,6 +538,12 @@ section.content #projects_gallery .body-container {
   box-sizing: border-box;
   border-radius: 2px;
 }
+section.content #projects_gallery .body-container ul {
+  list-style-type: disc;
+}
+section.content #projects_gallery .body-container ul li {
+  margin-left: 4.82759%;
+}
 section.content #projects_gallery #technology-container {
   margin-left: 4.40252%;
   width: 91.19497%;
@@ -570,6 +589,7 @@ section.content #projects_gallery #technology-container .row-fluid .span8 .thumb
   padding: 0px 20px 0px 20px;
   margin-right: 10px;
   margin-left: 0px;
+  margin-bottom: 0.45em;
   border-radius: 3px;
 }
 section.content #contact_container {
@@ -697,6 +717,7 @@ section.content #contact_container .form-row .span10 #submit_contact_us_containe
   line-height: 2.625em;
   text-align: center;
   cursor: pointer;
+  text-decoration: none;
   border-radius: 2px;
   background-color: #111111;
   color: fafafa;

@@ -4,49 +4,85 @@
     <id>1</id>
     <languages>
       <language>Javascript</language>
+      <language>HTML5</language>
+      <language>CSS3</language>
+      <language>Coffeescript</language>
+      <language>HAML</language>
+      <language>SASS</language>
     </languages>
     <libraries>
       <library>Node.js</library>
       <library>Express</library>
+      <library>JQuery</library>
+      <library>JQuery UI</library>
+      <library>Backbone.js</library>
+      <library>Socket.io</library>
+      <library>underscore.js</library>
     </libraries>
     <tools>
-      <tool>Coffeescript</tool>
-      <tool>SASS</tool>
+      <tool>Prepros</tool>
     </tools>
     <others>
       <other>Bootstrap</other>
+      <other>Photoshop CS4</other>
     </others>
-    <body>This is the project body. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </body>
+    <body>This was my entry for npower's &lt;a href="http://www.thedeveloperchallenge.com/"&gt;App Developer Challenge 2013&lt;/a&gt;. The aim was to use the dummy data provided in XML format as a basis for an app that encouraged customers to save energy. The premise of the 24 Hour Challenge was for the user to time their appliance usage over a 24 hour period for a variety of (provided) appliances- the clock in the top right corner keeps a tally of how much has been spent by the user on their selected tariff. By selecting alternative providers and tariffs, the user can compare their spend with what they could have spent in other circumstances.&lt;/br&gt;
+&lt;/br&gt;
+Selecting "My Savings" informs the user of:&lt;ul&gt;
+&lt;li&gt;A potential saving&lt;/li&gt;
+&lt;li&gt;How much they would have to reduce their appliance usage to achieve that saving, or&lt;/li&gt;
+&lt;li&gt;Alternatively how they could save simply by switching to an alternate tariff.&lt;/li&gt;
+&lt;/ul&gt;&lt;/br&gt;
+The thinking behind this was that users are shown how they can save money simply by changing their tariff, rather than their lifestyle, as well as emphasising how much money could be saved simply by switching. &lt;/br&gt;
+&lt;/br&gt;
+Technically, I used this as an exercise to build my experience with a number of technologies. The app uses backbone.js as a foundation- all data regarding the appliances and their usage was stored in appropriate models, with the relevant data for the user fetched from the server. Each model (e.g. for each appliance) was rendered to HTML according to a template and then attached to the DOM. JQuery and JQuery UI were used to process user interaction with elements, with functions like animate used to provide the "button pressing" animation. Underscore.js was used (in addition to it being necessary for backbone.js) for its useful utility functions, which were especially useful when calculating the "My Saving" tab. Also used were HAML and SASS, pre-compilers that made working with HTML and CSS much more efficient and also enjoyable.
+&lt;/br&gt;
+This was my first experience using node.js and express server. I originally developed much of the app with Socket.io, but dropped this when my chosen host did not yet have support for it. The server has a RESTful API (as I understand it) for dealing with requests. &lt;/br&gt;
+&lt;/br&gt;
+Much of the CSS was based on &lt;a href="http://getbootstrap.com/"&gt;Twitter Bootstrap&lt;/a&gt;- I think it is fantastic and really provides a great way to get great looking elements easily. I like to use it as a foundation and then use my own stylesheet to override properties I want to change- this way I do not affect the original Bootstrap stylesheet.  In terms of my experience with SASS- for this project it was limited to precompiling CSS and using mixins- I expanded upon this further then doing this portfolio site (see relevant tab). &lt;/br&gt;
+&lt;/br&gt;
+I used &lt;a href="http://alphapixels.com/prepros/"&gt;Prepros&lt;/a&gt; to manage the automatic compilation of relevant files, which I think is great. When I needed to manipulate images (or create the logo), I used Photoshop CS4, of which I have a couple of years experience.&lt;/br&gt;
+&lt;/br&gt;
+In terms of improvements, I would have spent more time making sure the app has better compatibility with various devices and browsers. The app has some responsive design but now I would have placed greater emphasis on it right from the start. I also would use Backbone's app model to organise the app for greater organisation. Although great as an exercise in using Node.js, because I did use Socket.io in the end, it was not strictly necassary. I probably would have used HTML5's local storage too. These are things I am now taking into account in current projects. </body>
     <title>The 24/365 Challenge</title>
     <tech>javascript</tech>
     <image_url>img/24365_2.png</image_url>
-    <image_urls></image_urls>
-    <image_url>/img/24365_3.png </image_url>
     <thumbnail_image_url>/img/24365_logo.png</thumbnail_image_url>
     <live_site_url>http://24hourchallenge.eu01.aws.af.cm</live_site_url>
   </project>
   <project>
     <id>2</id>
+    <tools />
     <languages>
-      <language>Javascript</language>
+      <language>Java</language>
     </languages>
     <libraries>
-      <library>Node.js</library>
-      <library>Express</library>
+      <library>Log4j</library>
+      <library>NiftyGUI</library>
+      <library>Openmap</library>
     </libraries>
-    <tools>
-      <tool>Coffeescript</tool>
-      <tool>SASS</tool>
-    </tools>
     <others>
-      <other>Bootstrap</other>
+      <other>jMonkeyEngine3</other>
+      <other>MySQL</other>
+      <other>Blender</other>
     </others>
-    <body>This is the project body. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. </body>
+    <body>Infected Earth is a the de facto name for my Dissertation project. The aim was to build a 3D simulator that allowed the user to view infections as they spread around the globe, according to user-defined variables. For this, I used the open source 3D engine jMonkeyEngine3, which runs on Java. &lt;/br&gt;
+&lt;/br&gt;
+In a nutshell, the user selects a city on Earth (e.g. London), decides upon the attributes of the infection, and presses Start. The movement of exposed, infected, and recovered individuals is shown (yellow, red and green dots on the screenshot, respectively) through time. Using population laws I attempted to model realistic daily movement between cities- the infection in my model always spread to highly populated areas such as capital cities quite quickly (although the scientific validity of this has not been verified).&lt;/br&gt;
+&lt;/br&gt;
+The model for infection is based upon the SIR model. This is a relatively simple but reasonably accurate model for calculating the number of infected individuals over time, within a discrete single population. The challenge I set myself was to model this for the world; the general idea was to model each human settlement as a discrete population. For each iteration of the model, or “day”, the SIR model for each settlement was calculated and the movement between cities was modelled via various techniques such as Ravenstein’s laws of population movement. A database of 50,000 settlements was used (from MaxMind) for the data. Openmap (a set of classes for geographical calculations) was used for operations such as calculating the exact distance across the surface of the Earth between two points.&lt;/br&gt;
+&lt;/br&gt;
+Calculating the movement of individuals between various cities, as well as updating the numbers for the SIR model is an expensive operation, especially considering it was being done while a 3D environment had to be rendered. To counter this, I created a pre-processing system. This calculated the variables needed for the infection model in a process separate from the simulation process. These were stored in a MySQL database and imported when the simulator ran.&lt;/br&gt;
+&lt;/br&gt;
+The Earth itself is a model I created in Blender. Conceptually, it is a spherical mesh with maps of the Earth as textures. However, due to the high quality textures required, the I made separate, textured panels and combined these in jMonkeyEngine to create the complete “world”. The maps were satellite images available from NASA. &lt;/br&gt;
+&lt;/br&gt;
+The simulator’s camera is always fixed towards the centre of the world, but the user can use the arrow keys and mouse wheel to rotate the camera / zoom in and out respectively. &lt;/br&gt;
+&lt;/br&gt;
+When I presented this program, the feedback was that the model was not generalisable to the real world- this is understandable as developing a new biological model (and one that was generalisable to the entire Earth, if that’s even possible) is going to require much time and expertise beyond my primary field of study.&lt;/br&gt;
+&lt;/br&gt;
+In the project I learnt a lot about the nature of 3D modelling, and really enjoyed developing the simulator. However, I also learnt that it perhaps would have been better to stick to verified, scientifically sound models rather than try and develop my own based on assumptions. </body>
     <title>Infected Earth</title>
-    <tech>javascript</tech>
     <image_url>img/globe.png</image_url>
-    <image_urls></image_urls>
-    <image_url>/img/24365_3.png </image_url>
     <thumbnail_image_url>/img/24365_logo.png</thumbnail_image_url>
     <live_site_url></live_site_url>
   </project>

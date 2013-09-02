@@ -55,6 +55,7 @@ $header_bg : rgba(151, 151, 151, 0.2) //rgba(151, 50, 50, 0.2)
 =button_styles
 	text-align: center
 	cursor : pointer
+	text-decoration : none
 	border-radius : 2px
 	background-color : #111111 //202020 //393939 //#fafafa //rgba(65, 24, 24, 1)
 	color : fafafa
@@ -94,6 +95,12 @@ body
 	background-color : #060606 //#202127 //#242926 //#7A8B82 //#342636 //#4C354E //#fafafa //rgb(226, 226, 226)
 	font-family : Rokkitt
 	color : #222222
+	a
+		text-decoration : underline
+		&:active, &:visited
+			color : #006166 //#00A4AC //rgba(0, 91, 95, 1)
+		&:hover
+			color : #00A4AC
 	
 #background_container
 	//background-color : #fafafa
@@ -316,6 +323,10 @@ section.content
 			box-sizing : border-box
 			//padding : $base-line-height //1em 1em 1em
 			border-radius : 2px
+			ul
+				list-style-type : disc
+				li	
+					+pre(1,21)
 		#technology-container
 			//+leader(1)
 			+pre(1,23)
@@ -357,6 +368,7 @@ section.content
 							padding : 0px 20px 0px 20px
 							margin-right : $gutter-width
 							margin-left : 0px
+							margin-bottom : 0.45em
 							//+box_shadow(0.2)
 							border-radius : 3px
 	#contact_container
